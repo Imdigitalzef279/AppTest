@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string key = Request.QueryString["Key"];
+}
+
+<h2>Search @key</h2>
+
+@{
+    if (key==""|| key.Length<3)
+    {
+        <h3>Vui Lòng Nhập Từ Khóa</h3>
+    }
+    else
+    {
+        result = new SinhVien().SearchByKey(key);
+
+        foreach(var item in Results)
+        {
+            <p>item.Name</p>
+        }
+    }
+}
